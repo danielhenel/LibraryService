@@ -38,8 +38,8 @@
             this.followedButton = new System.Windows.Forms.Button();
             this.historyButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.previousButton = new System.Windows.Forms.Button();
+            this.nextButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -168,27 +168,27 @@
             this.flowLayoutPanel2.TabIndex = 6;
             this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
-            // button4
+            // previousButton
             // 
-            this.button4.BackColor = System.Drawing.Color.Tan;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1, 226);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(24, 529);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "<";
-            this.button4.UseVisualStyleBackColor = false;
+            this.previousButton.BackColor = System.Drawing.Color.Tan;
+            this.previousButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.previousButton.Location = new System.Drawing.Point(1, 226);
+            this.previousButton.Name = "previousButton";
+            this.previousButton.Size = new System.Drawing.Size(24, 529);
+            this.previousButton.TabIndex = 7;
+            this.previousButton.Text = "<";
+            this.previousButton.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // nextButton
             // 
-            this.button5.BackColor = System.Drawing.Color.Tan;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(1224, 226);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(24, 529);
-            this.button5.TabIndex = 8;
-            this.button5.Text = ">";
-            this.button5.UseVisualStyleBackColor = false;
+            this.nextButton.BackColor = System.Drawing.Color.Tan;
+            this.nextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextButton.Location = new System.Drawing.Point(1224, 226);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(24, 529);
+            this.nextButton.TabIndex = 8;
+            this.nextButton.Text = ">";
+            this.nextButton.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -279,7 +279,7 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1187, 77);
+            this.panel6.Size = new System.Drawing.Size(1177, 77);
             this.panel6.TabIndex = 8;
             // 
             // panel10
@@ -340,8 +340,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 767);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.nextButton);
+            this.Controls.Add(this.previousButton);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.titlePanel);
@@ -372,8 +372,8 @@
         private System.Windows.Forms.Button followedButton;
         private System.Windows.Forms.Button onLoanButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button previousButton;
+        private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
