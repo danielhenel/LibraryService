@@ -9,8 +9,8 @@ namespace ClassLib
     public class HistoryItem
     {
         public int Id { get; set; }
-        public int? BookId { get; set; }
-        public int? UserId { get; set; }
+        public int BookId { get; set; }
+        public int UserId { get; set; }
         public DateTime LoanStartDate { get; set; }
         public DateTime LoanEndDate { get; set; }
     }

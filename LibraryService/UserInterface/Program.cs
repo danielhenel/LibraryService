@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace UserInterface
     internal static class Program
     {
         public static string userType = "Guest";
+        public static User user;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

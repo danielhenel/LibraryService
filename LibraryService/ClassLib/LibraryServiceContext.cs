@@ -21,6 +21,8 @@ namespace ClassLib
         public DbSet<BookAuthor> Authors { get; set; }
         public DbSet<BookCategory> Categories { get; set; }
         public DbSet<HistoryItem> History { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<CurrentOnLoanBook> CurrentOnLoanBooks { get; set; }
 
     }
 }
