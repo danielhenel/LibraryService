@@ -26,6 +26,9 @@ namespace UserInterface
         {
             InitializeComponent();
             currentPage = 1;
+            endDateLabel.Text = "OnLoad";
+            endDateLabel.Size = new System.Drawing.Size(236, 36);
+            endDateLabel.Visible = true;
         }
 
         private void onLoanButton_Click(object sender, EventArgs e)
@@ -39,6 +42,10 @@ namespace UserInterface
             changeButtonsColor("OnLoan");
             showBooksOnLoan();
             state = "OnLoan";
+            //update header
+            endDateLabel.Text = "OnLoad";
+            endDateLabel.Size = new System.Drawing.Size(236, 36);
+            endDateLabel.Visible = true;
         }
 
         private void followedButton_Click(object sender, EventArgs e)
@@ -52,6 +59,7 @@ namespace UserInterface
             changeButtonsColor("Follow");
             showFollowedBooks();
             state = "Follow";
+            endDateLabel.Visible = false;
         }
 
         private void historyButton_Click(object sender, EventArgs e)
@@ -65,6 +73,9 @@ namespace UserInterface
             changeButtonsColor("History");
             showHistory();
             state = "History";
+            endDateLabel.Text = "Loan Period";
+            endDateLabel.Size = new System.Drawing.Size(350, 36);
+            endDateLabel.Visible = true;
         }
 
         private void changeButtonsColor(string buttonName)
@@ -406,7 +417,6 @@ namespace UserInterface
                 // panel
                 //
                 Panel panel = new Panel();
-                panel.Controls.Add(renewButton);
                 panel.Controls.Add(detailsButton);
                 panel.Controls.Add(panel1);
                 panel.Controls.Add(panel2);

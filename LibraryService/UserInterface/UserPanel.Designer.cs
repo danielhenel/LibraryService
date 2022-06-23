@@ -48,7 +48,7 @@
             this.previousButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label43 = new System.Windows.Forms.Label();
+            this.endDateLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label33 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -263,7 +263,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Tan;
-            this.panel3.Controls.Add(this.label43);
+            this.panel3.Controls.Add(this.endDateLabel);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel2);
@@ -272,15 +272,15 @@
             this.panel3.Size = new System.Drawing.Size(1190, 43);
             this.panel3.TabIndex = 9;
             // 
-            // label43
+            // endDateLabel
             // 
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(729, 3);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(236, 36);
-            this.label43.TabIndex = 4;
-            this.label43.Text = "End Date";
-            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.endDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDateLabel.Location = new System.Drawing.Point(729, 3);
+            this.endDateLabel.Name = "endDateLabel";
+            this.endDateLabel.Size = new System.Drawing.Size(236, 36);
+            this.endDateLabel.TabIndex = 4;
+            this.endDateLabel.Text = "End Date";
+            this.endDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
@@ -380,7 +380,7 @@
         private System.Windows.Forms.Button previousButton;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label endDateLabel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Panel panel5;
