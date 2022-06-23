@@ -34,13 +34,14 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.newNotificationButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.usersBox = new System.Windows.Forms.ComboBox();
             this.historyButton = new System.Windows.Forms.Button();
             this.followedButton = new System.Windows.Forms.Button();
             this.onLoanButton = new System.Windows.Forms.Button();
-            this.usersBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.endDateLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -57,7 +58,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.newNotificationButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -129,46 +129,13 @@
             this.panel1.Size = new System.Drawing.Size(1247, 71);
             this.panel1.TabIndex = 3;
             // 
-            // historyButton
+            // newNotificationButton
             // 
-            this.historyButton.BackColor = System.Drawing.Color.SandyBrown;
-            this.historyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.historyButton.Location = new System.Drawing.Point(994, 13);
-            this.historyButton.Name = "historyButton";
-            this.historyButton.Size = new System.Drawing.Size(235, 45);
-            this.historyButton.TabIndex = 2;
-            this.historyButton.Text = "History";
-            this.historyButton.UseVisualStyleBackColor = false;
-            // 
-            // followedButton
-            // 
-            this.followedButton.BackColor = System.Drawing.Color.SandyBrown;
-            this.followedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.followedButton.Location = new System.Drawing.Point(753, 13);
-            this.followedButton.Name = "followedButton";
-            this.followedButton.Size = new System.Drawing.Size(235, 45);
-            this.followedButton.TabIndex = 1;
-            this.followedButton.Text = "Followed";
-            this.followedButton.UseVisualStyleBackColor = false;
-            // 
-            // onLoanButton
-            // 
-            this.onLoanButton.BackColor = System.Drawing.Color.OrangeRed;
-            this.onLoanButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.onLoanButton.Location = new System.Drawing.Point(512, 13);
-            this.onLoanButton.Name = "onLoanButton";
-            this.onLoanButton.Size = new System.Drawing.Size(235, 45);
-            this.onLoanButton.TabIndex = 0;
-            this.onLoanButton.Text = "On Load";
-            this.onLoanButton.UseVisualStyleBackColor = false;
-            // 
-            // usersBox
-            // 
-            this.usersBox.FormattingEnabled = true;
-            this.usersBox.Location = new System.Drawing.Point(24, 37);
-            this.usersBox.Name = "usersBox";
-            this.usersBox.Size = new System.Drawing.Size(364, 21);
-            this.usersBox.TabIndex = 3;
+            this.newNotificationButton.Location = new System.Drawing.Point(430, 13);
+            this.newNotificationButton.Name = "newNotificationButton";
+            this.newNotificationButton.Size = new System.Drawing.Size(75, 43);
+            this.newNotificationButton.TabIndex = 6;
+            this.newNotificationButton.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -180,10 +147,56 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "User";
             // 
+            // usersBox
+            // 
+            this.usersBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.usersBox.FormattingEnabled = true;
+            this.usersBox.Location = new System.Drawing.Point(24, 37);
+            this.usersBox.Name = "usersBox";
+            this.usersBox.Size = new System.Drawing.Size(364, 21);
+            this.usersBox.TabIndex = 3;
+            this.usersBox.SelectedIndexChanged += new System.EventHandler(this.usersBox_SelectedIndexChanged);
+            // 
+            // historyButton
+            // 
+            this.historyButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.historyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historyButton.Location = new System.Drawing.Point(994, 13);
+            this.historyButton.Name = "historyButton";
+            this.historyButton.Size = new System.Drawing.Size(235, 45);
+            this.historyButton.TabIndex = 2;
+            this.historyButton.Text = "History";
+            this.historyButton.UseVisualStyleBackColor = false;
+            this.historyButton.Click += new System.EventHandler(this.historyButton_Click);
+            // 
+            // followedButton
+            // 
+            this.followedButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.followedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.followedButton.Location = new System.Drawing.Point(753, 13);
+            this.followedButton.Name = "followedButton";
+            this.followedButton.Size = new System.Drawing.Size(235, 45);
+            this.followedButton.TabIndex = 1;
+            this.followedButton.Text = "Followed";
+            this.followedButton.UseVisualStyleBackColor = false;
+            this.followedButton.Click += new System.EventHandler(this.followedButton_Click);
+            // 
+            // onLoanButton
+            // 
+            this.onLoanButton.BackColor = System.Drawing.Color.OrangeRed;
+            this.onLoanButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onLoanButton.Location = new System.Drawing.Point(512, 13);
+            this.onLoanButton.Name = "onLoanButton";
+            this.onLoanButton.Size = new System.Drawing.Size(235, 45);
+            this.onLoanButton.TabIndex = 0;
+            this.onLoanButton.Text = "On Load";
+            this.onLoanButton.UseVisualStyleBackColor = false;
+            this.onLoanButton.Click += new System.EventHandler(this.onLoanButton_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Tan;
-            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.endDateLabel);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel2);
@@ -192,15 +205,15 @@
             this.panel3.Size = new System.Drawing.Size(1190, 43);
             this.panel3.TabIndex = 10;
             // 
-            // label4
+            // endDateLabel
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(729, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(236, 36);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "End Date";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.endDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDateLabel.Location = new System.Drawing.Point(729, 3);
+            this.endDateLabel.Name = "endDateLabel";
+            this.endDateLabel.Size = new System.Drawing.Size(236, 36);
+            this.endDateLabel.TabIndex = 4;
+            this.endDateLabel.Text = "End Date";
+            this.endDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
@@ -269,6 +282,7 @@
             this.previousButton.TabIndex = 11;
             this.previousButton.Text = "<";
             this.previousButton.UseVisualStyleBackColor = false;
+            this.previousButton.Click += new System.EventHandler(this.previousButton_Click);
             // 
             // nextButton
             // 
@@ -280,6 +294,7 @@
             this.nextButton.TabIndex = 12;
             this.nextButton.Text = ">";
             this.nextButton.UseVisualStyleBackColor = false;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -357,15 +372,7 @@
             this.panel7.Size = new System.Drawing.Size(236, 71);
             this.panel7.TabIndex = 4;
             // 
-            // newNotificationButton
-            // 
-            this.newNotificationButton.Location = new System.Drawing.Point(430, 13);
-            this.newNotificationButton.Name = "newNotificationButton";
-            this.newNotificationButton.Size = new System.Drawing.Size(75, 43);
-            this.newNotificationButton.TabIndex = 6;
-            this.newNotificationButton.UseVisualStyleBackColor = true;
-            // 
-            // AdminInterface
+            // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -376,7 +383,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.titlePanel);
-            this.Name = "AdminInterface";
+            this.Name = "AdminPanel";
             this.Text = "AdminInterface";
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
@@ -406,7 +413,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox usersBox;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label endDateLabel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
