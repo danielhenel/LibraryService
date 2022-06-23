@@ -22,7 +22,7 @@ namespace UserApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = client.GetData(77);
+            
         }
 
         private void followButton_Click(object sender, EventArgs e)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="50e2174e-cbfa-4cfc-b710-0fa0e4cc1a4a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="ab1e9718-b0bb-4a43-86c4-38478103b8d6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,9 +22,9 @@
     <MetadataSource Address="http://localhost:8000/LibraryService/LibraryService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e43de935-8a86-4e0d-899d-b73a78b8a1ff" SourceId="1" SourceUrl="http://localhost:8000/LibraryService/LibraryService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="1366b540-9047-4cb9-8b22-926872cdc389" SourceId="1" SourceUrl="http://localhost:8000/LibraryService/LibraryService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7b05e67a-99f0-49b0-8051-bb10361e2fea" SourceId="1" SourceUrl="http://localhost:8000/LibraryService/LibraryService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="aa67f7d5-1433-44c0-be75-255c803e7fef" SourceId="1" SourceUrl="http://localhost:8000/LibraryService/LibraryService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="cd20a17b-91b4-42ea-9eb1-826c9f12c471" SourceId="1" SourceUrl="http://localhost:8000/LibraryService/LibraryService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="6c7cdd37-c057-42c9-896e-363f6e49bcff" SourceId="1" SourceUrl="http://localhost:8000/LibraryService/LibraryService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

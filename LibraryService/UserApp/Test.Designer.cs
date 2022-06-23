@@ -72,6 +72,13 @@
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -87,6 +94,8 @@
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel30.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -510,11 +519,80 @@
             this.panel26.Size = new System.Drawing.Size(236, 71);
             this.panel26.TabIndex = 4;
             // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.button5);
+            this.panel27.Controls.Add(this.button6);
+            this.panel27.Controls.Add(this.panel28);
+            this.panel27.Controls.Add(this.panel29);
+            this.panel27.Controls.Add(this.panel30);
+            this.panel27.Location = new System.Drawing.Point(72, 73);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(921, 77);
+            this.panel27.TabIndex = 12;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(821, 10);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(79, 56);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "Follow";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(736, 10);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(79, 56);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "Details";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // panel28
+            // 
+            this.panel28.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel28.Location = new System.Drawing.Point(484, 3);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(236, 71);
+            this.panel28.TabIndex = 6;
+            // 
+            // panel29
+            // 
+            this.panel29.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel29.Location = new System.Drawing.Point(242, 3);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(236, 71);
+            this.panel29.TabIndex = 5;
+            // 
+            // panel30
+            // 
+            this.panel30.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel30.Controls.Add(this.label13);
+            this.panel30.Location = new System.Drawing.Point(3, 3);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(236, 71);
+            this.panel30.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(0, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(236, 71);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "label13";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 866);
+            this.Controls.Add(this.panel27);
             this.Controls.Add(this.panel22);
             this.Controls.Add(this.panel18);
             this.Controls.Add(this.panel14);
@@ -540,6 +618,8 @@
             this.panel20.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
+            this.panel27.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -591,6 +671,13 @@
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Label label13;
     }
 }
 

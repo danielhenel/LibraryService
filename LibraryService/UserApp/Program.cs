@@ -18,7 +18,7 @@ namespace UserApp
             LibraryClient client = new LibraryClient();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(client));
+            Application.Run(new MainWindow());
         }
     }
 }
