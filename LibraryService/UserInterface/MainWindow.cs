@@ -23,17 +23,20 @@ namespace UserInterface
         {
             InitializeComponent();
 
-            /*var categories = (from category in context.Categories
+            var categories = (from category in context.Categories
                               select category.Name).ToArray();
 
             if (categories!=null) categoryBox.Items.AddRange(categories);
             var years = (from book in context.Books
                          select book.Year.ToString()).ToArray();
             if (years != null) yearBox.Items.AddRange(years);
+
             Books = (from book in context.Books
                             select book).ToList();
-            Console.WriteLine(context);*/
-            //showBooks();
+
+            currentPage = 1;
+
+            showBooks();
         }
 
         private void previousButton_Click(object sender, EventArgs e)
@@ -54,39 +57,54 @@ namespace UserInterface
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            var title = titleTexBox.Text;
-            var author = authorTextBox.Text;
-            var category = categoryBox.Text;
-            var year = -1;
+            string title = titleTexBox.Text;
+            string author = authorTextBox.Text;
+            int authorId = (from a in context.Authors
+                            where a.Name == author
+                            select a.Id).SingleOrDefault();
+            string category = categoryBox.Text;
+            int categoryId = (from cat in context.Categories
+                              where cat.Name == category
+                              select cat.Id).SingleOrDefault();
+            int year = 0;
             try
             {
                 year = int.Parse(yearBox.Text);
             }
             catch
             {
-                year = -1;
+                year = 0;
             }
 
-            var rating_from = -1;
-            var rating_to = -1;
+            int rating_from = -1;
+            int rating_to = -1;
             if (ratingBox.Text == @"[0,1)") { rating_from = 0; rating_to = 1; }
             else if (ratingBox.Text == @"[1,2)") { rating_from = 1; rating_to = 2; }
             else if (ratingBox.Text == @"[2,3)") { rating_from = 2; rating_to = 3; }
             else if (ratingBox.Text == @"[3,4)") { rating_from = 3; rating_to = 4; }
             else if (ratingBox.Text == @"[4,5)") { rating_from = 4; rating_to = 5; }
 
-            var price_from = -1;
-            var price_to = -1;
+            int price_from = -1;
+            int price_to = -1;
             if (priceBox.Text == @"<30") { price_to = 30; }
             else if (priceBox.Text == @"(30,50]") { price_from = 30; price_to = 50; }
             else if (priceBox.Text == @"(50,70]") { price_from = 50; price_to = 70; }
             else if (priceBox.Text == @"(70,90]") { price_from = 70; price_to = 90; }
             else if (priceBox.Text == @">90") { price_from = 90; }
 
-            var currency = currencyBox.Text;
+            string currency = currencyBox.Text;
 
             Books = (from book in context.Books
-                            select book).ToList();
+                     where (title != "" ? book.Title == title : true)
+                     && (author != "" ? book.AuthorId == authorId : true)
+                     && (category != "" ? book.CategoryId == categoryId : true)
+                     && (year != 0 ? book.Year == year : true)
+                     && (rating_from != -1 ? book.Rating >= rating_from : true)
+                     && (rating_to != -1 ? book.Rating < rating_to : true)
+                     && (price_from != -1 ? book.Price > price_from : true)
+                     && (price_to != -1 ? book.Price <= price_to : true)
+                     && (currency != "" ? book.Currency == currency : true)
+                     select book).ToList();
 
             lastPage = Books.Count() % 5 == 0 ? Books.Count() : Books.Count() + 1;
             firstPage = 1;
@@ -95,12 +113,13 @@ namespace UserInterface
             if (lastPage > currentPage) { nextButton.Enabled = true; }
             else nextButton.Enabled = false;
 
-
             showBooks();
         }
 
         void showBooks()
         {
+            if(Books.Count() == 0) return;
+
             flowLayoutPanel2.Controls.Clear();
 
 
@@ -119,6 +138,7 @@ namespace UserInterface
                 followButton.Text = "Follow";
                 followButton.UseVisualStyleBackColor = true;
                 followButton.Click += new System.EventHandler(this.followButton_Click);
+                followButton.Tag = Books[i];
 
                 // 
                 // detailsButton
@@ -128,6 +148,7 @@ namespace UserInterface
                 detailsButton.Location = new System.Drawing.Point(736, 10);
                 detailsButton.Size = new System.Drawing.Size(79, 56);
                 detailsButton.Text = "Details";
+                detailsButton.Tag = Books[i];
                 detailsButton.UseVisualStyleBackColor = true;
                 detailsButton.Click += new System.EventHandler(this.detailsButton_Click);
 
@@ -143,7 +164,7 @@ namespace UserInterface
                 label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 Panel panel1 = new Panel();
                 panel1.BackColor = System.Drawing.Color.SandyBrown;
-                panel1.Location = new System.Drawing.Point(484, 3);
+                panel1.Location = new System.Drawing.Point(3, 3);
                 panel1.Size = new System.Drawing.Size(236, 71);
                 panel1.Controls.Add(label1);
 
@@ -174,12 +195,12 @@ namespace UserInterface
                 label3.Location = new System.Drawing.Point(0, 0);
                 label3.Size = new System.Drawing.Size(236, 71);
                 label3.Text = (from category in context.Categories
-                               where category.Id == Books[i].AuthorId
+                               where category.Id == Books[i].CategoryId
                                select category.Name).SingleOrDefault();
                 label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 Panel panel3 = new Panel();
                 panel3.BackColor = System.Drawing.Color.SandyBrown;
-                panel3.Location = new System.Drawing.Point(3, 3);
+                panel3.Location = new System.Drawing.Point(484, 3);
                 panel3.Size = new System.Drawing.Size(236, 71);
                 panel3.Controls.Add(label3);
 
@@ -208,7 +229,8 @@ namespace UserInterface
 
         private void detailsButton_Click(object sender, EventArgs e)
         {
-
+            BookDetails form = new BookDetails((Book)((Button)sender).Tag);
+            form.Show();
         }
     }
 }

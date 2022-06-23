@@ -8,6 +8,7 @@ namespace UserInterface
 {
     internal static class Program
     {
+        public static string userType = "Guest";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
