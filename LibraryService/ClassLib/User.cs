@@ -20,5 +20,11 @@ namespace ClassLib
         public string Password { get; set; }
         public Role Role { get; set; }
         public List<HistoryItem> History { get; set; }
+
+        public override string ToString()
+        {
+            string msg = this.Name + " " + this.Surname;
+            return msg;
+        }
     }
 }
