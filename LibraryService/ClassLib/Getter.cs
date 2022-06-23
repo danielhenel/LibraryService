@@ -18,6 +18,41 @@ namespace ClassLib
              select category).SingleOrDefault();
         }
 
+        public static CurrentOnLoanBook getCurrentOnLoanBookByBookId(int id)
+        {
+            return (from book in context.CurrentOnLoanBooks
+                    where book.BookId == id
+                    select book).SingleOrDefault();
+        }
+
+        public static List<HistoryItem> getUsersHistoryByUserId(int id)
+        {
+            return (from item in context.History
+                    where item.UserId == id
+                    select item).ToList();
+        }
+
+        public static List<Subscription> getUsersSubscriptionsByUserId(int id)
+        {
+            return (from item in context.Subscriptions
+                    where item.UserId == id
+                    select item).ToList();
+        }
+
+        public static List<CurrentOnLoanBook> getUsersCurrentOnLoanBooksByUserId(int id)
+        {
+            return (from item in context.CurrentOnLoanBooks
+                    where item.UserId == id
+                    select item).ToList();
+        }
+
+        public static Book getBookById(int id)
+        {
+            return (from item in context.Books
+                    where item.Id == id
+                    select item).SingleOrDefault();
+        }
+
         public static BookAuthor getAuthorById(int id)
         {
             return (from author in context.Authors
