@@ -1,4 +1,5 @@
-﻿using ServiceLib;
+﻿using ClassLib;
+using ServiceLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace Database
     {
         static void Main(string[] args)
         {
+            LibraryServiceContext context = new LibraryServiceContext();
+
+            if (context.Database.EnsureCreated()) DataLoader.loadData();
+
             Uri baseAddress = new Uri("http://localhost:8000/LibraryService/");
 
             ServiceHost selfHost = new ServiceHost(typeof(LibraryService), baseAddress);
