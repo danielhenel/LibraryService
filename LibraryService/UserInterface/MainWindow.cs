@@ -35,23 +35,39 @@ namespace UserInterface
                             select book).ToList();
 
             currentPage = 1;
+            lastPage = Books.Count() % 5 == 0 ? Books.Count() : Books.Count() + 1;
+            firstPage = 1;
+            previousButton.Enabled = false;
+            currentPage = 1;
+            if (lastPage > currentPage) { nextButton.Enabled = true; }
+            else nextButton.Enabled = false;
 
             showBooks();
         }
 
         private void previousButton_Click(object sender, EventArgs e)
         {
+            if (currentPage == firstPage)
+            {
+                previousButton.Enabled = false;
+                return;
+            }
             currentPage--;
-            if (currentPage == firstPage) previousButton.Enabled = false;
             nextButton.Enabled = true;
+            label11.Text = currentPage.ToString();
             showBooks();
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
+            if (currentPage == lastPage)
+            {
+                nextButton.Enabled = false;
+                return;
+            }
             currentPage++;
-            if (currentPage == lastPage) nextButton.Enabled = false;
             previousButton.Enabled = true;
+            label11.Text = currentPage.ToString();
             showBooks();
         }
 
