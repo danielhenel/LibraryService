@@ -100,5 +100,12 @@ namespace ClassLib
             }
             return id;
         }
+
+        public static List<User> getUsers()
+        {
+            return (from item in context.Users
+                    select item).ToList();
+        }
+
     }
 }
