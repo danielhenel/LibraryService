@@ -1,6 +1,6 @@
 ﻿namespace UserInterface
 {
-    partial class AdminInterface
+    partial class AdminPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -128,7 +128,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1247, 71);
             this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // historyButton
             // 
@@ -379,7 +378,6 @@
             this.Controls.Add(this.titlePanel);
             this.Name = "AdminInterface";
             this.Text = "AdminInterface";
-            this.Load += new System.EventHandler(this.AdminInterface_Load);
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
             this.panel1.ResumeLayout(false);
