@@ -107,5 +107,12 @@ namespace ClassLib
                     select item).ToList();
         }
 
+        public static User getUserByLogin(string login)
+        {
+            return (from item in context.Users
+                    where item.Login == login
+                    select item).SingleOrDefault();
+        }
+
     }
 }

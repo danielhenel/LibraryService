@@ -41,6 +41,7 @@ namespace UserInterface
             currentPage = 1;
             if (lastPage > currentPage) { nextButton.Enabled = true; }
             else nextButton.Enabled = false;
+            logoutButton.Visible = false;
 
             showBooks();
         }
@@ -156,6 +157,7 @@ namespace UserInterface
                 followButton.Click += new System.EventHandler(this.followButton_Click);
                 followButton.Tag = Books[i];
 
+
                 // 
                 // detailsButton
                 // 
@@ -240,13 +242,66 @@ namespace UserInterface
 
         private void followButton_Click(object sender, EventArgs e)
         {
-
+            Subscription sub = new Subscription
+            {
+                BookId = ((Book)((Button)sender).Tag).Id,
+                UserId = Program.user.Id
+            };
+            context.Subscriptions.Add(sub);
+            context.SaveChanges();
         }
 
         private void detailsButton_Click(object sender, EventArgs e)
         {
             BookDetails form = new BookDetails((Book)((Button)sender).Tag);
             form.Show();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            Login form = new Login(this);
+            form.Show();
+        }
+
+        private void changePanelButton_Click(object sender, EventArgs e)
+        {
+            if(Program.user != null)
+            {
+                if(Program.user.Role == "User")
+                {
+                    UserPanel panel = new UserPanel();
+                    panel.Show();
+                }
+                else if(Program.user.Role == "Admin")
+                {
+                    AdminPanel panel = new AdminPanel();
+                    panel.Show();
+                }
+            }
+        }
+
+        private void logoutButton_Click_1(object sender, EventArgs e)
+        {
+            Program.user = null;
+            Program.userType = "Guest";
+            loginButton.Visible = true;
+            logoutButton.Visible = false;
+            changePanelButton.Visible = false;
+        }
+
+        public Button getChangePanelButton()
+        {
+            return changePanelButton;
+        }
+
+        public Button getLoginButton()
+        {
+            return loginButton;
+        }
+
+        public Button getLogoutButton()
+        {
+            return logoutButton;
         }
     }
 }

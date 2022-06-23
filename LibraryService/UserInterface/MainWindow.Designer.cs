@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.titlePanel = new System.Windows.Forms.Panel();
+            this.changePanelButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.ciceroQuote = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
@@ -76,6 +77,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -103,6 +105,8 @@
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.NavajoWhite;
+            this.titlePanel.Controls.Add(this.logoutButton);
+            this.titlePanel.Controls.Add(this.changePanelButton);
             this.titlePanel.Controls.Add(this.loginButton);
             this.titlePanel.Controls.Add(this.ciceroQuote);
             this.titlePanel.Controls.Add(this.titleLabel);
@@ -112,13 +116,29 @@
             this.titlePanel.Size = new System.Drawing.Size(1247, 146);
             this.titlePanel.TabIndex = 0;
             // 
+            // changePanelButton
+            // 
+            this.changePanelButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.changePanelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changePanelButton.Location = new System.Drawing.Point(1046, 3);
+            this.changePanelButton.Name = "changePanelButton";
+            this.changePanelButton.Size = new System.Drawing.Size(102, 60);
+            this.changePanelButton.TabIndex = 6;
+            this.changePanelButton.UseVisualStyleBackColor = false;
+            this.changePanelButton.Visible = false;
+            this.changePanelButton.Click += new System.EventHandler(this.changePanelButton_Click);
+            // 
             // loginButton
             // 
+            this.loginButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.Location = new System.Drawing.Point(1154, 3);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 60);
             this.loginButton.TabIndex = 5;
-            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Text = "Log in";
+            this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // ciceroQuote
             // 
@@ -585,6 +605,18 @@
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // logoutButton
+            // 
+            this.logoutButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.Location = new System.Drawing.Point(1154, 3);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 60);
+            this.logoutButton.TabIndex = 7;
+            this.logoutButton.Text = "Log out";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click_1);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,5 +709,7 @@
         private System.Windows.Forms.ComboBox yearBox;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button changePanelButton;
+        private System.Windows.Forms.Button logoutButton;
     }
 }

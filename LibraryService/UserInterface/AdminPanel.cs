@@ -42,13 +42,14 @@ namespace UserInterface
 
         private void onLoanButton_Click(object sender, EventArgs e)
         {
+            changeButtonsColor("OnLoan");
+            if (BooksOnLoan == null) return;
             lastPage = BooksOnLoan.Count() % 5 == 0 ? BooksOnLoan.Count() : BooksOnLoan.Count() + 1;
             firstPage = 1;
             previousButton.Enabled = false;
             currentPage = 1;
             if (lastPage > currentPage) { nextButton.Enabled = true; }
             else nextButton.Enabled = false;
-            changeButtonsColor("OnLoan");
             showBooksOnLoan();
             state = "OnLoan";
             //update header
@@ -59,13 +60,14 @@ namespace UserInterface
 
         private void followedButton_Click(object sender, EventArgs e)
         {
-            lastPage = FollowedBooks.Count() % 5 == 0 ? FollowedBooks.Count() : FollowedBooks.Count() + 1;
+            changeButtonsColor("Follow");
+            if (FollowedBooks == null) return;
+            lastPage = FollowedBooks.Count() % 5 == 0 ? FollowedBooks.Count() : (FollowedBooks.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
             currentPage = 1;
             if (lastPage > currentPage) { nextButton.Enabled = true; }
             else nextButton.Enabled = false;
-            changeButtonsColor("Follow");
             showFollowedBooks();
             state = "Follow";
             endDateLabel.Visible = false;
@@ -73,13 +75,14 @@ namespace UserInterface
 
         private void historyButton_Click(object sender, EventArgs e)
         {
+            changeButtonsColor("History");
+            if (BooksHistory == null) return;
             lastPage = BooksHistory.Count() % 5 == 0 ? BooksHistory.Count() : BooksHistory.Count() + 1;
             firstPage = 1;
             previousButton.Enabled = false;
             currentPage = 1;
             if (lastPage > currentPage) { nextButton.Enabled = true; }
             else nextButton.Enabled = false;
-            changeButtonsColor("History");
             showHistory();
             state = "History";
             endDateLabel.Text = "Loan Period";
@@ -436,6 +439,7 @@ namespace UserInterface
         {
             CurrentOnLoanBook book = (CurrentOnLoanBook)((Button)sender).Tag;
             context.CurrentOnLoanBooks.Remove(book);
+            context.SaveChanges();
             this.Controls.Remove(((Panel)(((Button)sender).Parent)));
             MessageBox.Show("Book returned");
         }
