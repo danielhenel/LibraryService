@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.searchButton = new System.Windows.Forms.Button();
             this.ciceroQuote = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.newNotificationButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.usersBox = new System.Windows.Forms.ComboBox();
             this.historyButton = new System.Windows.Forms.Button();
@@ -71,7 +69,6 @@
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.NavajoWhite;
-            this.titlePanel.Controls.Add(this.searchButton);
             this.titlePanel.Controls.Add(this.ciceroQuote);
             this.titlePanel.Controls.Add(this.titleLabel);
             this.titlePanel.Controls.Add(this.notificationPanel);
@@ -79,14 +76,6 @@
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Size = new System.Drawing.Size(1247, 146);
             this.titlePanel.TabIndex = 2;
-            // 
-            // searchButton
-            // 
-            this.searchButton.Location = new System.Drawing.Point(1154, 3);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 60);
-            this.searchButton.TabIndex = 5;
-            this.searchButton.UseVisualStyleBackColor = true;
             // 
             // ciceroQuote
             // 
@@ -118,7 +107,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Tan;
-            this.panel1.Controls.Add(this.newNotificationButton);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.usersBox);
             this.panel1.Controls.Add(this.historyButton);
@@ -128,14 +116,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1247, 71);
             this.panel1.TabIndex = 3;
-            // 
-            // newNotificationButton
-            // 
-            this.newNotificationButton.Location = new System.Drawing.Point(430, 13);
-            this.newNotificationButton.Name = "newNotificationButton";
-            this.newNotificationButton.Size = new System.Drawing.Size(75, 43);
-            this.newNotificationButton.TabIndex = 6;
-            this.newNotificationButton.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -402,7 +382,6 @@
         #endregion
 
         private System.Windows.Forms.Panel titlePanel;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label ciceroQuote;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.FlowLayoutPanel notificationPanel;
@@ -430,6 +409,5 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button newNotificationButton;
     }
 }

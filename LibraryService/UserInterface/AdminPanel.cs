@@ -16,7 +16,7 @@ namespace UserInterface
         User currentUser;
         LibraryServiceContext context = new LibraryServiceContext();
         List<CurrentOnLoanBook> BooksOnLoan;
-        List<HistoryItem> FollowedBooks;
+        List<Subscription> FollowedBooks;
         List<HistoryItem> BooksHistory;
         int firstPage;
         int currentPage;
@@ -36,7 +36,7 @@ namespace UserInterface
         {
             currentUser = usersBox.SelectedItem as User;
             BooksOnLoan = Getter.getUsersCurrentOnLoanBooksByUserId(currentUser.Id);
-            FollowedBooks = Getter.getUsersHistoryByUserId(currentUser.Id);
+            FollowedBooks = Getter.getUsersSubscriptionsByUserId(currentUser.Id);
             BooksHistory = Getter.getUsersHistoryByUserId(currentUser.Id);
         }
 
@@ -44,7 +44,7 @@ namespace UserInterface
         {
             changeButtonsColor("OnLoan");
             if (BooksOnLoan == null) return;
-            lastPage = BooksOnLoan.Count() % 5 == 0 ? BooksOnLoan.Count() : BooksOnLoan.Count() + 1;
+            lastPage = BooksOnLoan.Count() % 5 == 0 ? BooksOnLoan.Count() : (BooksOnLoan.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
             currentPage = 1;
@@ -77,7 +77,7 @@ namespace UserInterface
         {
             changeButtonsColor("History");
             if (BooksHistory == null) return;
-            lastPage = BooksHistory.Count() % 5 == 0 ? BooksHistory.Count() : BooksHistory.Count() + 1;
+            lastPage = BooksHistory.Count() % 5 == 0 ? BooksHistory.Count() : (BooksHistory.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
             currentPage = 1;

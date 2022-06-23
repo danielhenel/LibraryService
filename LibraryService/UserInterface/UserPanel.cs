@@ -16,7 +16,7 @@ namespace UserInterface
 
         LibraryServiceContext context = new LibraryServiceContext();
         List<CurrentOnLoanBook> BooksOnLoan = Getter.getUsersCurrentOnLoanBooksByUserId(Program.user.Id);
-        List<HistoryItem> FollowedBooks = Getter.getUsersHistoryByUserId(Program.user.Id);
+        List<Subscription> FollowedBooks = Getter.getUsersSubscriptionsByUserId(Program.user.Id);
         List<HistoryItem> BooksHistory = Getter.getUsersHistoryByUserId(Program.user.Id);
         int firstPage;
         int currentPage;
@@ -33,7 +33,8 @@ namespace UserInterface
 
         private void onLoanButton_Click(object sender, EventArgs e)
         {
-            lastPage = BooksOnLoan.Count() % 5 == 0 ? BooksOnLoan.Count() : BooksOnLoan.Count() + 1;
+            BooksOnLoan = Getter.getUsersCurrentOnLoanBooksByUserId(Program.user.Id);
+            lastPage = BooksOnLoan.Count() % 5 == 0 ? BooksOnLoan.Count() : (BooksOnLoan.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
             currentPage = 1;
@@ -50,7 +51,8 @@ namespace UserInterface
 
         private void followedButton_Click(object sender, EventArgs e)
         {
-            lastPage = FollowedBooks.Count() % 5 == 0 ? FollowedBooks.Count() : FollowedBooks.Count() + 1;
+            FollowedBooks = Getter.getUsersSubscriptionsByUserId(Program.user.Id);
+            lastPage = FollowedBooks.Count() % 5 == 0 ? FollowedBooks.Count() : (FollowedBooks.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
             currentPage = 1;
@@ -64,7 +66,8 @@ namespace UserInterface
 
         private void historyButton_Click(object sender, EventArgs e)
         {
-            lastPage = BooksHistory.Count() % 5 == 0 ? BooksHistory.Count() : BooksHistory.Count() + 1;
+            BooksHistory = Getter.getUsersHistoryByUserId(Program.user.Id);
+            lastPage = BooksHistory.Count() % 5 == 0 ? BooksHistory.Count() : (BooksHistory.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
             currentPage = 1;

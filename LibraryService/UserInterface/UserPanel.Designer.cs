@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.loginButton = new System.Windows.Forms.Button();
             this.ciceroQuote = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -59,7 +58,6 @@
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.NavajoWhite;
-            this.titlePanel.Controls.Add(this.loginButton);
             this.titlePanel.Controls.Add(this.ciceroQuote);
             this.titlePanel.Controls.Add(this.titleLabel);
             this.titlePanel.Controls.Add(this.notificationPanel);
@@ -67,14 +65,6 @@
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Size = new System.Drawing.Size(1247, 146);
             this.titlePanel.TabIndex = 1;
-            // 
-            // loginButton
-            // 
-            this.loginButton.Location = new System.Drawing.Point(1154, 3);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(75, 60);
-            this.loginButton.TabIndex = 5;
-            this.loginButton.UseVisualStyleBackColor = true;
             // 
             // ciceroQuote
             // 
@@ -289,7 +279,6 @@
         #endregion
 
         private System.Windows.Forms.Panel titlePanel;
-        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label ciceroQuote;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.FlowLayoutPanel notificationPanel;
