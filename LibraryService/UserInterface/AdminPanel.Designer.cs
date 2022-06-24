@@ -49,21 +49,12 @@
             this.previousButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.followButton = new System.Windows.Forms.Button();
-            this.detailsButton = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.titlePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -280,77 +271,11 @@
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.flowLayoutPanel2.Controls.Add(this.panel6);
             this.flowLayoutPanel2.Font = new System.Drawing.Font("Ebrima", 8.25F);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(25, 279);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1190, 480);
             this.flowLayoutPanel2.TabIndex = 13;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.panel10);
-            this.panel6.Controls.Add(this.followButton);
-            this.panel6.Controls.Add(this.detailsButton);
-            this.panel6.Controls.Add(this.panel9);
-            this.panel6.Controls.Add(this.panel8);
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1172, 77);
-            this.panel6.TabIndex = 8;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.SandyBrown;
-            this.panel10.Location = new System.Drawing.Point(726, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(236, 71);
-            this.panel10.TabIndex = 9;
-            // 
-            // followButton
-            // 
-            this.followButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.followButton.Location = new System.Drawing.Point(1078, 10);
-            this.followButton.Name = "followButton";
-            this.followButton.Size = new System.Drawing.Size(79, 56);
-            this.followButton.TabIndex = 8;
-            this.followButton.Text = "Renew";
-            this.followButton.UseVisualStyleBackColor = true;
-            // 
-            // detailsButton
-            // 
-            this.detailsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsButton.Location = new System.Drawing.Point(993, 10);
-            this.detailsButton.Name = "detailsButton";
-            this.detailsButton.Size = new System.Drawing.Size(79, 56);
-            this.detailsButton.TabIndex = 7;
-            this.detailsButton.Text = "Details";
-            this.detailsButton.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.SandyBrown;
-            this.panel9.Location = new System.Drawing.Point(484, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(236, 71);
-            this.panel9.TabIndex = 6;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.SandyBrown;
-            this.panel8.Location = new System.Drawing.Point(242, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(236, 71);
-            this.panel8.TabIndex = 5;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.SandyBrown;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(236, 71);
-            this.panel7.TabIndex = 4;
             // 
             // AdminPanel
             // 
@@ -373,8 +298,6 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -402,12 +325,5 @@
         private System.Windows.Forms.Button previousButton;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button followButton;
-        private System.Windows.Forms.Button detailsButton;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel7;
     }
 }

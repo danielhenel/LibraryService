@@ -135,10 +135,8 @@ namespace UserInterface
 
         void showBooks()
         {
-            if(Books.Count() == 0) return;
-
             flowLayoutPanel2.Controls.Clear();
-
+            if (Books.Count() == 0) return;
 
             int start = currentPage * 5 - 5;
             int end = currentPage * 5 - 1;
@@ -242,6 +240,7 @@ namespace UserInterface
 
         private void followButton_Click(object sender, EventArgs e)
         {
+            if (Program.user == null) return;
             Subscription sub = new Subscription
             {
                 BookId = ((Book)((Button)sender).Tag).Id,
@@ -249,6 +248,7 @@ namespace UserInterface
             };
             context.Subscriptions.Add(sub);
             context.SaveChanges();
+            MessageBox.Show("Followed");
         }
 
         private void detailsButton_Click(object sender, EventArgs e)

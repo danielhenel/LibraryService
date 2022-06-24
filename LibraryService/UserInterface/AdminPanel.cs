@@ -15,9 +15,9 @@ namespace UserInterface
     {
         User currentUser;
         LibraryServiceContext context = new LibraryServiceContext();
-        List<CurrentOnLoanBook> BooksOnLoan;
-        List<Subscription> FollowedBooks;
-        List<HistoryItem> BooksHistory;
+        List<CurrentOnLoanBook> BooksOnLoan = Getter.getUsersCurrentOnLoanBooksByUserId(Program.user.Id);
+        List<Subscription> FollowedBooks = Getter.getUsersSubscriptionsByUserId(Program.user.Id);
+        List<HistoryItem> BooksHistory = Getter.getUsersHistoryByUserId(Program.user.Id);
         int firstPage;
         int currentPage;
         int lastPage;
@@ -27,7 +27,7 @@ namespace UserInterface
             InitializeComponent();
             usersBox.Items.AddRange(Getter.getUsers().ToArray());
             currentPage = 1;
-            endDateLabel.Text = "OnLoad";
+            endDateLabel.Text = "End Date";
             endDateLabel.Size = new System.Drawing.Size(236, 36);
             endDateLabel.Visible = true;
         }
@@ -53,7 +53,7 @@ namespace UserInterface
             showBooksOnLoan();
             state = "OnLoan";
             //update header
-            endDateLabel.Text = "OnLoad";
+            endDateLabel.Text = "End Date";
             endDateLabel.Size = new System.Drawing.Size(236, 36);
             endDateLabel.Visible = true;
         }
@@ -114,10 +114,10 @@ namespace UserInterface
 
         private void showBooksOnLoan()
         {
-            if (BooksOnLoan.Count() == 0) return;
-
             flowLayoutPanel2.Controls.Clear();
-
+            if (currentUser == null) return;
+            BooksOnLoan = Getter.getUsersCurrentOnLoanBooksByUserId(currentUser.Id);
+            if (BooksOnLoan.Count() == 0) return;
 
             int start = currentPage * 5 - 5;
             int end = currentPage * 5 - 1;
@@ -126,16 +126,16 @@ namespace UserInterface
             {
                 Book currentBook = Getter.getBookById(BooksOnLoan[i].BookId);
                 // 
-                // returnedButton
+                // returnButton
                 // 
-                Button renewButton = new Button();
-                renewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                renewButton.Location = new System.Drawing.Point(1078, 10);
-                renewButton.Size = new System.Drawing.Size(79, 56);
-                renewButton.Text = "Returned";
-                renewButton.UseVisualStyleBackColor = true;
-                renewButton.Click += new System.EventHandler(this.returnedButton_Click);
-                renewButton.Tag = BooksOnLoan[i];
+                Button returnButton = new Button();
+                returnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                returnButton.Location = new System.Drawing.Point(1078, 10);
+                returnButton.Size = new System.Drawing.Size(79, 56);
+                returnButton.Text = "Return";
+                returnButton.UseVisualStyleBackColor = true;
+                returnButton.Click += new System.EventHandler(this.returnedButton_Click);
+                returnButton.Tag = BooksOnLoan[i];
 
                 // 
                 // detailsButton
@@ -206,25 +206,26 @@ namespace UserInterface
                 label4.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 label4.Location = new System.Drawing.Point(0, 0);
                 label4.Size = new System.Drawing.Size(236, 71);
-                label4.Text = Getter.getCurrentOnLoanBookByBookId(BooksOnLoan[i].Id).endDate.ToString();
+                label4.Text = BooksOnLoan[i].endDate.ToString("dddd, dd MMMM yyyy");
                 label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 Panel panel4 = new Panel();
                 panel4.BackColor = System.Drawing.Color.SandyBrown;
                 panel4.Location = new System.Drawing.Point(726, 3);
                 panel4.Size = new System.Drawing.Size(236, 71);
-                panel4.Controls.Add(label3);
+                panel4.Controls.Add(label4);
 
                 //
                 // panel
                 //
                 Panel panel = new Panel();
-                panel.Controls.Add(renewButton);
+                panel.Controls.Add(returnButton);
                 panel.Controls.Add(detailsButton);
                 panel.Controls.Add(panel1);
                 panel.Controls.Add(panel2);
                 panel.Controls.Add(panel3);
+                panel.Controls.Add(panel4);
                 panel.Location = new System.Drawing.Point(3, 3);
-                panel.Size = new System.Drawing.Size(921, 77);
+                panel.Size = new System.Drawing.Size(1177, 77);
 
                 flowLayoutPanel2.Controls.Add(panel);
                 i++;
@@ -233,9 +234,10 @@ namespace UserInterface
 
         private void showFollowedBooks()
         {
-            if (FollowedBooks.Count() == 0) return;
-
             flowLayoutPanel2.Controls.Clear();
+            if (currentUser == null) return;
+            FollowedBooks = Getter.getUsersSubscriptionsByUserId(currentUser.Id);
+            if (FollowedBooks.Count() == 0) return;
 
 
             int start = currentPage * 5 - 5;
@@ -315,7 +317,7 @@ namespace UserInterface
                 panel.Controls.Add(panel2);
                 panel.Controls.Add(panel3);
                 panel.Location = new System.Drawing.Point(3, 3);
-                panel.Size = new System.Drawing.Size(921, 77);
+                panel.Size = new System.Drawing.Size(1177, 77);
 
                 flowLayoutPanel2.Controls.Add(panel);
                 i++;
@@ -324,9 +326,10 @@ namespace UserInterface
 
         private void showHistory()
         {
-            if (BooksHistory.Count() == 0) return;
-
             flowLayoutPanel2.Controls.Clear();
+            if (currentUser == null) return;
+            BooksHistory = Getter.getUsersHistoryByUserId(currentUser.Id);
+            if (BooksHistory.Count() == 0) return;
 
 
             int start = currentPage * 5 - 5;
@@ -405,13 +408,13 @@ namespace UserInterface
                 label4.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 label4.Location = new System.Drawing.Point(0, 0);
                 label4.Size = new System.Drawing.Size(350, 71);
-                label4.Text = BooksHistory[i].LoanStartDate.ToString() + " - " + BooksHistory[i].LoanEndDate.ToString();
+                label4.Text = BooksHistory[i].LoanStartDate.ToString("dddd, dd MMMM yyyy") + " - " + BooksHistory[i].LoanEndDate.ToString("dddd, dd MMMM yyyy");
                 label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 Panel panel4 = new Panel();
                 panel4.BackColor = System.Drawing.Color.SandyBrown;
                 panel4.Location = new System.Drawing.Point(726, 3);
                 panel4.Size = new System.Drawing.Size(236, 71);
-                panel4.Controls.Add(label3);
+                panel4.Controls.Add(label4);
 
                 //
                 // panel
@@ -421,8 +424,9 @@ namespace UserInterface
                 panel.Controls.Add(panel1);
                 panel.Controls.Add(panel2);
                 panel.Controls.Add(panel3);
+                panel.Controls.Add(panel4);
                 panel.Location = new System.Drawing.Point(3, 3);
-                panel.Size = new System.Drawing.Size(921, 77);
+                panel.Size = new System.Drawing.Size(1177, 77);
 
                 flowLayoutPanel2.Controls.Add(panel);
                 i++;
@@ -442,6 +446,17 @@ namespace UserInterface
             context.SaveChanges();
             this.Controls.Remove(((Panel)(((Button)sender).Parent)));
             MessageBox.Show("Book returned");
+
+            DateTime today = DateTime.Today;
+            HistoryItem item = new HistoryItem
+            {
+                BookId = book.Id,
+                UserId = book.UserId,
+                LoanStartDate = book.startDate,
+                LoanEndDate = today
+            };
+            context.History.Add(item);
+            context.SaveChanges();
         }
 
         private void previousButton_Click(object sender, EventArgs e)

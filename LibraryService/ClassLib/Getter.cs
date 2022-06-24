@@ -114,5 +114,13 @@ namespace ClassLib
                     select item).SingleOrDefault();
         }
 
+        public static Subscription getSubscriptionByUserIdBookId(int userId, int bookId)
+        {
+            return (from item in context.Subscriptions
+                    where item.UserId == userId
+                    && item.BookId == bookId
+                    select item).SingleOrDefault();
+        }
+
     }
 }

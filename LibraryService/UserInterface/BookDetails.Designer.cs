@@ -325,6 +325,10 @@
             // 
             this.currencyBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.currencyBox.FormattingEnabled = true;
+            this.currencyBox.Items.AddRange(new object[] {
+            "EUR",
+            "PLN",
+            "USD"});
             this.currencyBox.Location = new System.Drawing.Point(430, 14);
             this.currencyBox.Name = "currencyBox";
             this.currencyBox.Size = new System.Drawing.Size(235, 21);

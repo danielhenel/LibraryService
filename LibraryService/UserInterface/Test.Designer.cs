@@ -79,6 +79,7 @@
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel30 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -519,6 +520,7 @@
             // 
             // panel27
             // 
+            this.panel27.Controls.Add(this.button7);
             this.panel27.Controls.Add(this.button5);
             this.panel27.Controls.Add(this.button6);
             this.panel27.Controls.Add(this.panel28);
@@ -526,7 +528,7 @@
             this.panel27.Controls.Add(this.panel30);
             this.panel27.Location = new System.Drawing.Point(72, 73);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(921, 77);
+            this.panel27.Size = new System.Drawing.Size(991, 77);
             this.panel27.TabIndex = 12;
             // 
             // button5
@@ -584,6 +586,16 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "label13";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(906, 11);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(79, 56);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "Follow";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // Test
             // 
@@ -676,6 +688,7 @@
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Panel panel30;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button7;
     }
 }
 

@@ -26,14 +26,21 @@ namespace UserInterface
         {
             InitializeComponent();
             currentPage = 1;
-            endDateLabel.Text = "OnLoad";
+            endDateLabel.Text = "End Date";
             endDateLabel.Size = new System.Drawing.Size(236, 36);
             endDateLabel.Visible = true;
+
+            lastPage = BooksOnLoan.Count() % 5 == 0 ? BooksOnLoan.Count() : (BooksOnLoan.Count() + 1);
+            firstPage = 1;
+            previousButton.Enabled = false;
+            currentPage = 1;
+            if (lastPage > currentPage) { nextButton.Enabled = true; }
+            else nextButton.Enabled = false;
+            showBooksOnLoan();
         }
 
         private void onLoanButton_Click(object sender, EventArgs e)
         {
-            BooksOnLoan = Getter.getUsersCurrentOnLoanBooksByUserId(Program.user.Id);
             lastPage = BooksOnLoan.Count() % 5 == 0 ? BooksOnLoan.Count() : (BooksOnLoan.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
@@ -44,14 +51,13 @@ namespace UserInterface
             showBooksOnLoan();
             state = "OnLoan";
             //update header
-            endDateLabel.Text = "OnLoad";
+            endDateLabel.Text = "End Date";
             endDateLabel.Size = new System.Drawing.Size(236, 36);
             endDateLabel.Visible = true;
         }
 
         private void followedButton_Click(object sender, EventArgs e)
         {
-            FollowedBooks = Getter.getUsersSubscriptionsByUserId(Program.user.Id);
             lastPage = FollowedBooks.Count() % 5 == 0 ? FollowedBooks.Count() : (FollowedBooks.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
@@ -66,7 +72,6 @@ namespace UserInterface
 
         private void historyButton_Click(object sender, EventArgs e)
         {
-            BooksHistory = Getter.getUsersHistoryByUserId(Program.user.Id);
             lastPage = BooksHistory.Count() % 5 == 0 ? BooksHistory.Count() : (BooksHistory.Count() + 1);
             firstPage = 1;
             previousButton.Enabled = false;
@@ -105,9 +110,12 @@ namespace UserInterface
 
         private void showBooksOnLoan()
         {
+            flowLayoutPanel2.Controls.Clear();
+            BooksOnLoan = Getter.getUsersCurrentOnLoanBooksByUserId(Program.user.Id);
+
             if (BooksOnLoan.Count() == 0) return;
 
-            flowLayoutPanel2.Controls.Clear();
+            
 
 
             int start = currentPage * 5 - 5;
@@ -197,13 +205,13 @@ namespace UserInterface
                 label4.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 label4.Location = new System.Drawing.Point(0, 0);
                 label4.Size = new System.Drawing.Size(236, 71);
-                label4.Text = Getter.getCurrentOnLoanBookByBookId(BooksOnLoan[i].Id).endDate.ToString();
+                label4.Text = BooksOnLoan[i].endDate.ToString("dddd, dd MMMM yyyy");
                 label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 Panel panel4 = new Panel();
                 panel4.BackColor = System.Drawing.Color.SandyBrown;
                 panel4.Location = new System.Drawing.Point(726, 3);
                 panel4.Size = new System.Drawing.Size(236, 71);
-                panel4.Controls.Add(label3);
+                panel4.Controls.Add(label4);
 
                 //
                 // panel
@@ -214,8 +222,9 @@ namespace UserInterface
                 panel.Controls.Add(panel1);
                 panel.Controls.Add(panel2);
                 panel.Controls.Add(panel3);
+                panel.Controls.Add(panel4);
                 panel.Location = new System.Drawing.Point(3, 3);
-                panel.Size = new System.Drawing.Size(921, 77);
+                panel.Size = new System.Drawing.Size(1177, 77);
 
                 flowLayoutPanel2.Controls.Add(panel);
                 i++;
@@ -224,9 +233,12 @@ namespace UserInterface
 
         private void showFollowedBooks()
         {
+            flowLayoutPanel2.Controls.Clear();
+            FollowedBooks = Getter.getUsersSubscriptionsByUserId(Program.user.Id);
+
             if (FollowedBooks.Count() == 0) return;
 
-            flowLayoutPanel2.Controls.Clear();
+            
 
 
             int start = currentPage * 5 - 5;
@@ -258,6 +270,18 @@ namespace UserInterface
                 detailsButton.Tag = currentBook;
                 detailsButton.UseVisualStyleBackColor = true;
                 detailsButton.Click += new System.EventHandler(this.detailsButton_Click);
+
+                // 
+                // orderButton
+                // 
+                Button orderButton = new Button();
+                orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                orderButton.Location = new System.Drawing.Point(906, 10);
+                orderButton.Size = new System.Drawing.Size(79, 56);
+                orderButton.Text = "Order";
+                orderButton.Tag = FollowedBooks[i];
+                orderButton.UseVisualStyleBackColor = true;
+                orderButton.Click += new System.EventHandler(this.orderButton_Click);
 
                 // 
                 // title
@@ -314,11 +338,12 @@ namespace UserInterface
                 Panel panel = new Panel();
                 panel.Controls.Add(unfollowButton);
                 panel.Controls.Add(detailsButton);
+                panel.Controls.Add(orderButton);
                 panel.Controls.Add(panel1);
                 panel.Controls.Add(panel2);
                 panel.Controls.Add(panel3);
                 panel.Location = new System.Drawing.Point(3, 3);
-                panel.Size = new System.Drawing.Size(921, 77);
+                panel.Size = new System.Drawing.Size(1177, 77);
 
                 flowLayoutPanel2.Controls.Add(panel);
                 i++;
@@ -327,9 +352,12 @@ namespace UserInterface
 
         private void showHistory()
         {
+            flowLayoutPanel2.Controls.Clear();
+            BooksHistory = Getter.getUsersHistoryByUserId(Program.user.Id);
+
             if (BooksHistory.Count() == 0) return;
 
-            flowLayoutPanel2.Controls.Clear();
+            
 
 
             int start = currentPage * 5 - 5;
@@ -408,13 +436,13 @@ namespace UserInterface
                 label4.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 label4.Location = new System.Drawing.Point(0, 0);
                 label4.Size = new System.Drawing.Size(350, 71);
-                label4.Text = BooksHistory[i].LoanStartDate.ToString() + " - " + BooksHistory[i].LoanEndDate.ToString();
+                label4.Text = BooksHistory[i].LoanStartDate.ToString("dddd, dd MMMM yyyy") + " - " + BooksHistory[i].LoanEndDate.ToString("dddd, dd MMMM yyyy");
                 label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 Panel panel4 = new Panel();
                 panel4.BackColor = System.Drawing.Color.SandyBrown;
                 panel4.Location = new System.Drawing.Point(726, 3);
                 panel4.Size = new System.Drawing.Size(236, 71);
-                panel4.Controls.Add(label3);
+                panel4.Controls.Add(label4);
 
                 //
                 // panel
@@ -424,8 +452,9 @@ namespace UserInterface
                 panel.Controls.Add(panel1);
                 panel.Controls.Add(panel2);
                 panel.Controls.Add(panel3);
+                panel.Controls.Add(panel4);
                 panel.Location = new System.Drawing.Point(3, 3);
-                panel.Size = new System.Drawing.Size(921, 77);
+                panel.Size = new System.Drawing.Size(1177, 77);
 
                 flowLayoutPanel2.Controls.Add(panel);
                 i++;
@@ -459,6 +488,22 @@ namespace UserInterface
             }
         }
 
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            CurrentOnLoanBook book = new CurrentOnLoanBook
+            {
+                UserId = Program.user.Id,
+                BookId = ((Subscription)((Button)sender).Tag).BookId,
+                numberOfRenews = 0,
+                startDate = DateTime.Today,
+                endDate = DateTime.Today.AddDays(30)
+            };
+            context.CurrentOnLoanBooks.Add(book);
+            context.Subscriptions.Remove((Subscription)((Button)sender).Tag);
+            context.SaveChanges();
+            showFollowedBooks();
+        }
+        
 
         private void unfollowButtonButton_Click(object sender, EventArgs e)
         {
@@ -467,6 +512,7 @@ namespace UserInterface
             context.SaveChanges();
             //update table
             this.Controls.Remove(((Panel)(((Button)sender).Parent)));
+            showFollowedBooks();
         }
 
         private void previousButton_Click(object sender, EventArgs e)
